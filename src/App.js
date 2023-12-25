@@ -1,23 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react';
+import Main from './component/main';
+import Header from './component/header';
 
 function App() {
+  
+
+  const [array,setarray]=useState([]);
+  const [cartItem, setCartItem] = useState(4);
+
+  function getarrayformainfile(arr){
+    // console.log(arr)
+    let getarr=[...arr];
+    setarray(getarr); 
+    
+  }
+
+  useEffect(() => {
+    // Calculate total quantity whenever 'getingArray' changes
+    let quantity = array.reduce((total, item) => total + item.quantity, 0);
+    setCartItem(quantity);
+  }, [array]);
+
+  useEffect(() => {
+    setCartItem(cartItem); // Trigger the calculation for cartItem value on initial load
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header val={cartItem}/>
+      <Main pusingArray={getarrayformainfile}/>
     </div>
   );
 }

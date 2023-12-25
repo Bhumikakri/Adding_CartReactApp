@@ -1,0 +1,35 @@
+.card{
+    width: 70%;
+    height: 100px;
+    justify-content:space-between;
+    display: flex;
+    align-items: center;
+    /* border: 2px solid blue; */
+}
+.NamePrice{
+    display: flex;
+    flex-direction: column;
+}
+.btns{
+    width: 40%;
+    height: 50%;
+    /* border: 2px solid blueviolet; */
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.btns span{
+    font-size: 1.3rem;
+    text-shadow: 2px 4px 3px rgb(22, 22, 22);
+}
+.btns button{
+    background-color: rgb(7, 85, 46);
+    color: white;
+    border: none;
+    font-size: 1.3rem;
+    width: 40px;
+    cursor: pointer;
+    box-shadow: 2px 4px 5px black;
+}
